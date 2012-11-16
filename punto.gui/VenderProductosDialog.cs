@@ -27,7 +27,7 @@ namespace punto.gui
 		public List<Produc> productoventa = new List<Produc>();
 		private Gtk.ListStore ventamodel;
 
-		public List<Produc> listapago = new List<Produc>();
+		public List<DetalleVenta> listapago = new List<DetalleVenta>();
 		private Gtk.ListStore listaventa;
 
 		
@@ -102,7 +102,7 @@ namespace punto.gui
 			Console.WriteLine(this.db.ObtenerBoleta());
 #endif	
 				
-			int temp=this.db.ObtenerBoleta();
+			int temp=db.ObtenerBoleta();
 			boleta=temp.ToString();
 			entry2.Text=boleta;
 			this.treeview2.Selection.Changed += TreeView2SelectionChanged;
@@ -202,7 +202,10 @@ namespace punto.gui
 		}
 		protected void OnButton81Clicked (object sender, EventArgs e)
 		{
-			
+			DetalleVenta pago = new DetalleVenta(Int32.Parse(entry2.Text.Trim()+1),1,Int32.Parse(label6.Text.Trim()),DateTime.Now);
+			Console.WriteLine(DateTime.Now);
+			this.db.AgregarVentaDetalle(pago);
+
 			Pagar rcd = new Pagar(this);
 			try 
 			{

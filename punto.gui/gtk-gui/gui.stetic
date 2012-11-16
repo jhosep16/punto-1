@@ -2123,6 +2123,7 @@
             <property name="Expand">False</property>
             <property name="Fill">False</property>
           </packing>
+<<<<<<< HEAD
         </child>
       </widget>
     </child>
@@ -2218,6 +2219,8 @@
         <property name="BorderWidth">2</property>
         <child>
           <placeholder />
+=======
+>>>>>>> Stash
         </child>
       </widget>
     </child>
